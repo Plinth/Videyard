@@ -1,7 +1,7 @@
 Videyard
 ========
 
-Secure video sharing and learning platform for primary education.
+Secure video sharing and learning platform for primary education. Made by Plinth.
 
 
 License
