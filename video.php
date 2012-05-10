@@ -5,6 +5,9 @@
 	include("app/classes/school.php");
 	
 	
+    if (empty($_SESSION['user_id'])) {
+        header("location: index.php");
+    }
 	if(!isset($_GET['id'])){
 		header("location: videos.php");
 	} 
@@ -84,7 +87,7 @@
 	<div id="contentinfo">
 		<div class="leftcol">
 			<h2 class="subheading">Description</h2>
-			<p class="style1"><?php print_r($video)//echo ($video->description);?></p>
+			<p class="style1"><?php echo ($video->description);?></p>
 		</div>
 		<div class="rightcol">
 			<h2 class="subheading">Information</h2>
