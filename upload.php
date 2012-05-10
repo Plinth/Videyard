@@ -2,7 +2,7 @@
     session_start();
     //Check the user is logged in
     if (empty($_SESSION['user_id'])) {
-        //header("location: index.php");
+        header("location: index.php");
     }
 ?>
 <!doctype html>
@@ -142,37 +142,37 @@ var fileUploadErrors = {
         </div>
         
         <div class="progress"><div class="progressbar"><div style="width:0%;"></div></div></div>
-       
-        <div class="upload-inputs">
-            <label class="description">Description: <textarea name="description[]" required></textarea></label>
-            <label>Title: <input name="title[]" required></label>
-            <label>Age group:
-                <select id="year" name="year[]">
-                    <option value="null" selected>Year Group...</option>
-                    <option value="1">Reception</option>
-                    <option value="2">Year 1</option>
-                    <option value="3">Year 2</option>
-                    <option value="4">Year 3</option>
-                    <option value="5">Year 4</option>
-                    <option value="6">Year 5</option>
-                    <option value="7">Year 6</option>
-                </select>
-            </label>
-            <label>Subject:
-                <select id="subject" name="subject[]">
-                    <option value="null" selected>All Subjects</option>
-                    <option value="1">Maths</option>
-                    <option value="2">English</option>
-                    <option value="3">Science</option>
-                    <option value="4">History</option>
-                    <option value="5">Geography</option>
-                    <option value="6">Drama</option>
-                </select>
-            </label>
-            <label><input type="checkbox" class="inline" name="public[]"> Make visible to other schools</label>
-            <input type="hidden" name="school_id[]" value="<?php echo $_SESSION['school_id'] ?>">
-        </div>
-
+       {% if (!file.error) { %}
+            <div class="upload-inputs">
+                <label class="description">Description: <textarea name="description[]" required></textarea></label>
+                <label>Title: <input name="title[]" required></label>
+                <label>Age group:
+                    <select id="year" name="year[]">
+                        <option value="null" selected>Year Group...</option>
+                        <option value="1">Reception</option>
+                        <option value="2">Year 1</option>
+                        <option value="3">Year 2</option>
+                        <option value="4">Year 3</option>
+                        <option value="5">Year 4</option>
+                        <option value="6">Year 5</option>
+                        <option value="7">Year 6</option>
+                    </select>
+                </label>
+                <label>Subject:
+                    <select id="subject" name="subject[]">
+                        <option value="null" selected>All Subjects</option>
+                        <option value="1">Maths</option>
+                        <option value="2">English</option>
+                        <option value="3">Science</option>
+                        <option value="4">History</option>
+                        <option value="5">Geography</option>
+                        <option value="6">Drama</option>
+                    </select>
+                </label>
+                <label><input type="checkbox" class="inline" name="public[]"> Make visible to other schools</label>
+                <input type="hidden" name="school_id[]" value="<?php echo $_SESSION['school_id'] ?>">
+            </div>
+        {% } %}
         <div class="btns">
             {% if (file.error) { %}
                 <div class="error"><span class="label important">Error</span> {%=fileUploadErrors[file.error] || file.error%}</div>
