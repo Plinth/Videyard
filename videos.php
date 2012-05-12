@@ -3,8 +3,7 @@ session_start();
 	//list all videos with brief information and thumbnails. Search and filter tools.
 	// If the session var is empty, redirect to the log-in
 	
-	UNCOMMENT THIS AFTER TESTING
-	if (empty($_SESSION['user_id'])) {
+	if(empty($_SESSION['user_id'])) {
 		header("location: index.php");
 	}
 

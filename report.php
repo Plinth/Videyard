@@ -3,6 +3,11 @@
 	include("app/classes/site.php");
 	include("app/classes/video.php");
 
+    //Check the user is logged in
+    if (empty($_SESSION['user_id'])) {
+        header("location: index.php");
+    }
+
 	if(isset($_GET['id'])){
 
 		$pdo = new PDO(DB_DETAILS, DB_USER, DB_PASS);
