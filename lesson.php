@@ -6,6 +6,11 @@
 	include("app/classes/lesson.php");
 	
 	
+    //Check the user is logged in
+    if (empty($_SESSION['user_id'])) {
+        header("location: index.php");
+    }
+
 	if(!isset($_GET['id'])){
 		header("location: lessons.php");
 	} 
