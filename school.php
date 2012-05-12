@@ -1,9 +1,9 @@
 <?php
 session_start();
-	//UNCOMMENT THIS AFTER TESTING
-	//if (empty($_SESSION['user_id'])) {
-	//	header("location: index.php");
-	//}
+    //Check the user is logged in
+    if (empty($_SESSION['user_id'])) {
+        header("location: index.php");
+    }
 
 	include("app/classes/site.php");
 	include("app/classes/school.php");
